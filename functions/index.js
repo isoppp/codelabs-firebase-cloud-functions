@@ -19,7 +19,21 @@ const functions = require('firebase-functions')
 const admin = require('firebase-admin')
 admin.initializeApp()
 
-// TODO(DEVELOPER): Write the addWelcomeMessages Function here.
+// Adds a message that welcomes new users into tha chat.
+exports.addWelcomeMessages = functions.auth.user().onCreate(user => {
+  console.log('A new user signed in for the first time.')
+  const fullName = user.displayName || 'Anonymous'
+
+  // Saves the new welcome message into the database
+  // which then displays it in the FriendlyChat clients
+  return admin.database().ref('messages').push({
+    name: 'Firebase Bot',
+    photoUrl: '/images/firebase-logo.png',
+    text: `${fullName} signed in for the first time! Welcome!`,
+  }).then(() => {
+    console.log('Welcome message written to database.')
+  })
+})
 
 // TODO(DEVELOPER): Write the blurOffensiveImages Function here.
 
