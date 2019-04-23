@@ -1,4 +1,7 @@
 # codelabs-firebase-cloud-functions
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/isoppp/codelabs-firebase-cloud-functions.svg)](https://greenkeeper.io/)
+
 refer: learn https://codelabs.developers.google.com/codelabs/firebase-cloud-functions/
 demo: https://codelabs-firebase-functions.firebaseapp.com/
 
